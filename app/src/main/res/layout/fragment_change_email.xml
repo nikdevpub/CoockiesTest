@@ -1,0 +1,92 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/change_email_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.email.ChangeEmailFragment">
+
+    <TextView
+        android:id="@+id/change_email_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/change_email_title"
+        android:textAppearance="@style/BlackBoldTextStyle"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:text="" />
+
+    <TextView
+        android:id="@+id/change_email_current_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/change_email_title"
+        app:layout_constraintStart_toStartOf="@+id/change_email_title"
+        app:layout_constraintTop_toBottomOf="@+id/change_email_title"
+        tools:text="alexvolkov@gmail.com" />
+
+    <TextView
+        android:id="@+id/change_email_title_current_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/change_email_is_current"
+        app:layout_constraintEnd_toEndOf="@+id/change_email_current_email"
+        app:layout_constraintStart_toStartOf="@+id/change_email_current_email"
+        app:layout_constraintTop_toBottomOf="@+id/change_email_current_email"
+        tools:text="is the current email" />
+
+    <EditText
+        android:id="@+id/change_email_edit_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/shape_edit_text"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter new email"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_email_title_current_email" />
+
+    <Button
+        android:id="@+id/change_email_continue"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/shape_button"
+        android:elevation="4dp"
+        android:text="@string/all_continue"
+        app:layout_constraintEnd_toEndOf="@+id/change_email_edit_email"
+        app:layout_constraintStart_toStartOf="@+id/change_email_edit_email"
+        app:layout_constraintTop_toBottomOf="@+id/change_email_edit_email" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_action_back_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CoockiesTest</string>
+    <string name="email_success_your_email">Your email...</string>
+    <string name="all_done">Done</string>
+    <string name="all_continue">Continue</string>
+    <string name="change_email_title">Change Email</string>
+    <string name="change_email_is_current">is the current email</string>
+</resources>
