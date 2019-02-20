@@ -26,6 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import timber.log.Timber;
 
 public final class ChangeEmailFragment extends BaseFragment implements ChangeEmailView {
     @Inject
@@ -70,7 +71,6 @@ public final class ChangeEmailFragment extends BaseFragment implements ChangeEma
     ) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
         unbinder = ButterKnife.bind(this, view);
-        setupUI(root);
         return view;
     }
 
@@ -79,6 +79,7 @@ public final class ChangeEmailFragment extends BaseFragment implements ChangeEma
     public void onViewCreated(
             @NonNull View view, @Nullable Bundle savedInstanceState
     ) {
+        setupUI(root);
         super.onViewCreated(view, savedInstanceState);
     }
 
@@ -100,15 +101,20 @@ public final class ChangeEmailFragment extends BaseFragment implements ChangeEma
     }
 
     public static void hideSoftKeyboard(Activity activity) {
-        InputMethodManager inputMethodManager =
-                (InputMethodManager) activity.getSystemService(
-                        Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(
-                activity.getCurrentFocus().getWindowToken(), 0);
+        try {
+            InputMethodManager inputMethodManager =
+                    (InputMethodManager) activity.getSystemService(
+                            Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(
+                    activity.getCurrentFocus().getWindowToken(), 0);
+        } catch (NullPointerException ex) {
+            ex.printStackTrace();
+            Timber.d("NPE: " + ex.getMessage());
+        }
+
     }
 
     public void setupUI(View view) {
-
         // Set up touch listener for non-text box views to hide keyboard.
         if (!(view instanceof EditText)) {
             view.setOnTouchListener((v, event) -> {
